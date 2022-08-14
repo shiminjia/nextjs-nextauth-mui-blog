@@ -46,5 +46,19 @@ function info(message, req) {
   }
 }
 
-export default {info, warn, error};
+function debug(message, req) {
+  if (req) {
+    logger.debug({
+      tranceId: req.__tranceId,
+      msg: JSON.stringify(message)
+    })
+  } else {
+    logger.debug({
+      tranceId: '-',
+      msg: JSON.stringify(message)
+    })
+  }
+}
+
+export default {info, warn, error, debug};
 
