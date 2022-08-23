@@ -3,6 +3,8 @@ https://nextjs-nextauth-mui-blog.vercel.app/
 
 # Installation
 
+First, you need to create a database at local or on the cloud.
+
 ```shell
 cd app
 // get dependence
@@ -11,9 +13,13 @@ yarn install
 cp env/.env.local ./.env
 ```
 
-open the .env file and fill in environment variable.
+Open the .env file and fill in environment variable.
+You can refer to this blog to fill in environment variable about next-auth 
+https://refine.dev/blog/nextauth-google-github-authentication-nextjs/
 
 ```shell
+// create table by prisma
+npx prisma migrate dev
 // start server
 yarn dev
 ```
