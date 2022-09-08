@@ -37,14 +37,9 @@ export default function Index(props) {
 export const getServerSideProps = async ({ req, res }) => {
   try {
 
-    const cookies = req.headers.cookie || "";
-
     let response = await fetch(process.env.API_URL + '/posts', {
       method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        cookie: cookies
-      },
+      headers: req.headers,
     });
 
     if (response.ok) {

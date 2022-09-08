@@ -50,6 +50,8 @@ function assignBodyResponse(req, res, next) {
 
     originalSend.call(this, body);
   };
+  // console.log(req);
+  // console.log(res);
   next();
 }
 

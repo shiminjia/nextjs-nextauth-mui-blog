@@ -47,14 +47,9 @@ export default Drafts;
 export const getServerSideProps = async ({ req, res }) => {
   try {
 
-    const cookies = req.headers.cookie || "";
-
     let response = await fetch(process.env.API_URL + '/drafts', {
       method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        cookie: cookies
-      },
+      headers: req.headers,
     });
 
     if (response.ok) {
